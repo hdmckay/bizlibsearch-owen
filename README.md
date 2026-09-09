@@ -46,33 +46,6 @@ Open **[`copy-paste-prompt.md`](copy-paste-prompt.md)**, copy the boxed text int
 
 The prompt carries a trimmed database list so it fits in one paste; the plugin and skill options carry the full verified catalog.
 
----
-
-## For the maintainer: publishing and updating this on GitHub
-
-**Publish (once):** create a **public** repo named `bizlibsearch-owen` on your account, then upload the *contents* of this folder so that `.claude-plugin/marketplace.json` sits at the repository root (not nested inside another folder). You can drag the files in on github.com (**Add file → Upload files**) or push with git:
-
-```bash
-git init && git add . && git commit -m "bizlibsearch-owen: plugin + skill + prompt"
-git branch -M main
-git remote add origin https://github.com/hdmckay/bizlibsearch-owen.git
-git push -u origin main
-```
-
-**Verify:** on GitHub, confirm the top level shows `.claude-plugin`, `bizlibsearch-owen`, `standalone-skill`, `copy-paste-prompt.md`, `README.md`, `LICENSE`. Then install it yourself with the Option 1 commands.
-
-**Update later:** the source of truth is the skill folder at `bizlibsearch-owen/skills/bizlibsearch/`. After editing it:
-
-1. Rebuild the downloadable skill so Option 2 stays in sync — from the repo root:
-   ```bash
-   ( cd bizlibsearch-owen/skills && zip -r -X ../../standalone-skill/bizlibsearch.skill bizlibsearch -x '*.DS_Store' )
-   ```
-2. If the database list changed, update the trimmed list in `copy-paste-prompt.md` too.
-3. Bump `version` in `bizlibsearch-owen/.claude-plugin/plugin.json` and in `.claude-plugin/marketplace.json`.
-4. Commit and push. Plugin users run `/plugin marketplace update owen-library`; skill and prompt users re-download.
-
----
-
 ## Contents
 
 ```
