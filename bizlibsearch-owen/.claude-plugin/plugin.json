@@ -1,0 +1,9 @@
+{
+  "name": "bizlibsearch-owen",
+  "version": "1.1.0",
+  "description": "Librarian-quality business research plans using Vanderbilt's Walker Management Library databases, tailored for Owen MBA students. Trigger with /bizlibsearch <topic>.",
+  "author": {
+    "name": "Walker Management Library",
+    "email": "managementlibrary@vanderbilt.edu"
+  }
+}
