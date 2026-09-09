@@ -1,0 +1,98 @@
+# bizlibsearch (Owen edition) — three ways to use it
+
+A [Claude](https://claude.ai) helper that turns a business-research question into a
+librarian-quality plan using Vanderbilt's Walker Management Library databases
+(IBISWorld, Statista, PitchBook, Mintel, Factiva, Nexis Uni, and more) — tailored
+for **Owen Graduate School of Management** students. It plans the strategy: which
+databases to use, in what order, how to search them, and how to fix access
+problems. You run the searches.
+
+**Pick whichever fits — you don't need all three:**
+
+| Option | Best for | Setup |
+|---|---|---|
+| **1. Plugin** (marketplace) | People who want the `/bizlibsearch` command *and* automatic updates from this repo | Two commands |
+| **2. Standalone skill** (`.skill`) | People who want the command but don't use plugins | Upload one file in Settings |
+| **3. Copy-paste prompt** | People who want zero setup, or don't have plugins/skills enabled | Paste text into a chat |
+
+All three use the same underlying skill and the same database catalog, so students get the same quality of plan whichever they choose.
+
+---
+
+## Option 1 — Install as a plugin (recommended for a cohort)
+
+This repository is a Claude plugin marketplace. In Claude (Claude Code, or Cowork with plugins enabled), run:
+
+```
+/plugin marketplace add hdmckay/bizlibsearch-owen
+```
+```
+/plugin install bizlibsearch-owen@owen-library
+```
+
+Then type `/bizlibsearch` plus your topic, e.g. `/bizlibsearch competitive landscape for ready-to-drink coffee`. To pull a later update: `/plugin marketplace update owen-library`.
+
+## Option 2 — Install as a standalone skill (no plugin)
+
+1. Download **[`standalone-skill/bizlibsearch.skill`](standalone-skill/bizlibsearch.skill)** (open the file on GitHub and click **Download raw file**).
+2. In Claude, go to **Settings → Capabilities → Skills** and choose **Upload skill** (drag the file in).
+3. Use it the same way: `/bizlibsearch <topic>`.
+
+Skill upload depends on your Claude plan; if you don't see it, use Option 3.
+
+## Option 3 — Copy-paste prompt (zero setup)
+
+Open **[`copy-paste-prompt.md`](copy-paste-prompt.md)**, copy the boxed text into a new Claude chat (regular app or web is fine — no plugin or skill needed), and add your topic on the last line. Save the box to reuse it in future chats.
+
+The prompt carries a trimmed database list so it fits in one paste; the plugin and skill options carry the full verified catalog.
+
+---
+
+## For the maintainer: publishing and updating this on GitHub
+
+**Publish (once):** create a **public** repo named `bizlibsearch-owen` on your account, then upload the *contents* of this folder so that `.claude-plugin/marketplace.json` sits at the repository root (not nested inside another folder). You can drag the files in on github.com (**Add file → Upload files**) or push with git:
+
+```bash
+git init && git add . && git commit -m "bizlibsearch-owen: plugin + skill + prompt"
+git branch -M main
+git remote add origin https://github.com/hdmckay/bizlibsearch-owen.git
+git push -u origin main
+```
+
+**Verify:** on GitHub, confirm the top level shows `.claude-plugin`, `bizlibsearch-owen`, `standalone-skill`, `copy-paste-prompt.md`, `README.md`, `LICENSE`. Then install it yourself with the Option 1 commands.
+
+**Update later:** the source of truth is the skill folder at `bizlibsearch-owen/skills/bizlibsearch/`. After editing it:
+
+1. Rebuild the downloadable skill so Option 2 stays in sync — from the repo root:
+   ```bash
+   ( cd bizlibsearch-owen/skills && zip -r -X ../../standalone-skill/bizlibsearch.skill bizlibsearch -x '*.DS_Store' )
+   ```
+2. If the database list changed, update the trimmed list in `copy-paste-prompt.md` too.
+3. Bump `version` in `bizlibsearch-owen/.claude-plugin/plugin.json` and in `.claude-plugin/marketplace.json`.
+4. Commit and push. Plugin users run `/plugin marketplace update owen-library`; skill and prompt users re-download.
+
+---
+
+## Contents
+
+```
+.
+├── .claude-plugin/marketplace.json          # makes this repo a plugin marketplace (Option 1)
+├── bizlibsearch-owen/                        # the plugin (Option 1) — source of truth for the skill
+│   ├── .claude-plugin/plugin.json
+│   ├── README.md
+│   └── skills/bizlibsearch/
+│       ├── SKILL.md
+│       └── references/{databases,search-craft,access-troubleshooting}.md
+├── standalone-skill/bizlibsearch.skill       # prebuilt upload file (Option 2)
+├── copy-paste-prompt.md                      # zero-setup prompt (Option 3)
+├── README.md
+└── LICENSE
+```
+
+## License & disclaimer
+
+MIT. Database details are accurate only as of the "last verified" date in
+`databases.md` and are specific to Vanderbilt University. This is an independent,
+community-built tool — not an official Vanderbilt University Library product, and
+not affiliated with or endorsed by Anthropic.
