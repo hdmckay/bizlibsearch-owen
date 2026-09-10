@@ -42,7 +42,7 @@ Skill upload depends on your Claude plan; if you don't see it, use Option 3.
 
 ## Option 3 — Copy-paste prompt (zero setup)
 
-Open **[`copy-paste-prompt.md`](copy-paste-prompt.md)**, copy the boxed text into a new Claude chat (regular app or web is fine — no plugin or skill needed), and add your topic on the last line. Save the box to reuse it in future chats.
+Open **[`copy-paste-prompt.md`](copy-paste-prompt.md)**, copy the boxed text into a new Claude chat (regular app or web is fine — no plugin or skill needed), and add your topic on the last line. Save it as a skill to reuse it in future chats.
 
 The prompt carries a trimmed database list so it fits in one paste; the plugin and skill options carry the full verified catalog.
 
