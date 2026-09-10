@@ -19,7 +19,7 @@ All three use the same underlying skill and the same database catalog, so studen
 
 ---
 
-## Option 1 — Install as a plugin (recommended for a cohort)
+## Option 1 — Install as a plugin if you use Claude cowork or code
 
 This repository is a Claude plugin marketplace. In Claude (Claude Code, or Cowork with plugins enabled), run:
 
