@@ -1,8 +1,8 @@
 # Vanderbilt business-research helper — copy-paste prompt
 
-No install needed. Copy everything in the box below into a new Claude chat, then
+No install needed. Copy everything in the box below into a new chat, then
 type your research topic on the last line (or send the box first and your topic
-next). Works in the regular Claude app or web — no plugin or skill required.
+next). Works in the regular Claude, ChatGPT, etc. app or web — no plugin or skill required.
 
 ---
 
