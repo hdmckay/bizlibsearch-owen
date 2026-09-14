@@ -11,7 +11,7 @@ problems. You run the searches.
 Use the [Management Library website's Databases A - Z list](https://bit.ly/wmldbs) as the access point and look up the databases by name.
 (The llm links don’t always work).
 
-**Pick whichever fits — you don't need all three:**
+**Pick whichever option you feel comfortable using — you don't need all three:**
 
 | Option | Best for | Setup |
 |---|---|---|
