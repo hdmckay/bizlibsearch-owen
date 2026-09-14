@@ -7,7 +7,7 @@ for **Owen Graduate School of Management** students. It plans the strategy: whic
 databases to use, in what order, how to search them, and how to fix access
 problems. You run the searches.
 
-**Important Tip about db access** 
+# Important Tip about db access
 Use the [Management Library website's Databases A - Z list](https://bit.ly/wmldbs) as the access point and look up the databases by name.
 (The llm links don’t always work).
 
